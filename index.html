@@ -228,6 +228,90 @@
         footer p {
             color: #666;
         }
+
+        /* Accordion styles */
+        .experience-category {
+            margin-bottom: 2rem;
+        }
+
+        .experience-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .accordion-header:hover {
+            background: #f8f9fa;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: white;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .accordion-content ul {
+            list-style: none;
+            padding-left: 1.5rem;  /* Added padding for bullet points */
+        }
+
+        .accordion-content ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .accordion-content ul li:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: -1rem;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 1rem;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .skills-tag {
+            display: inline-block;
+            background: var(--bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            color: var(--primary);
+        }
+
+        .tech-role {
+            border-left: 4px solid var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -248,7 +332,7 @@
         <div class="container">
             <img src="./assets/images/Angel's Edit.jpg" alt="Profile Photo" class="profile-img">
             <h1>Angel Garcia</h1>
-            <p>Full Stack Developer</p>
+            <p>Google IT Support Certified | Tech & Multimedia Production Skills</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -261,12 +345,15 @@
         <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
-                <p>Passionate about creating innovative web solutions</p>
+                <p>Passionate about technology and problem-solving</p>
             </div>
             <div class="timeline-item">
-                <p>Full Stack Developer with 5+ years of experience in building scalable web applications. 
-                Specialized in JavaScript ecosystems with a strong focus on React and Node.js. 
-                Committed to writing clean, maintainable code and implementing best practices.</p>
+                <h3>Professional Background</h3>
+                <p>I am a certified IT professional, having completed the Google IT Support Professional Certificate program through Coursera and trained at JobTrain. I have developed strong skills in system administration, network management, and IT support. I specialize in troubleshooting and resolving technical challenges, providing seamless IT support across hardware, software, and networking environments. Being bilingual in English and Spanish, I am equipped to offer comprehensive support to a diverse range of clients.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>My Journey</h3>
+                <p>My love for technology began in San Jose, CA, when I was 11, after my dad bought me a Pentium II desktop with Windows 95 from an unusual place, a grocery store. That computer became my playground. I spent countless hours experimenting—opening, tinkering, reinstalling the OS, and figuring out how everything worked. What started as simple curiosity quickly turned into a lifelong passion for troubleshooting and problem-solving.</p>
             </div>
         </div>
     </section>
@@ -275,26 +362,112 @@
         <div class="container">
             <div class="section-title">
                 <h2>Experience</h2>
-                <p>My professional journey</p>
+                <p>Professional Journey in Tech</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Senior Full Stack Developer</h3>
-                    <div class="date">TechCorp Inc. | 2020 - Present</div>
-                    <ul>
-                        <li>Led development of microservices-based architecture</li>
-                        <li>Implemented CI/CD pipeline reducing deployment time</li>
-                        <li>Mentored junior developers and conducted code reviews</li>
-                    </ul>
+            
+            <div class="experience-category">
+                <h3>Technical Roles</h3>
+                <div class="timeline">
+                    <div class="accordion-item tech-role">
+                        <div class="accordion-header">
+                            <div>
+                                <strong>Web Developer | WordPress Specialist</strong>
+                                <div>Bay Era Digital (Jan 2024 - Present)</div>
+                            </div>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Manage website development/migration for small businesses</li>
+                                <li>Customize WordPress themes/plugins, optimize performance</li>
+                                <li>Implement backup/disaster recovery plans</li>
+                                <li>Provide technical support and SEO consultation</li>
+                            </ul>
+                            <div class="skills-tags">
+                                <span class="skills-tag">WordPress Migration</span>
+                                <span class="skills-tag">Domain Management</span>
+                                <span class="skills-tag">Email Configuration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item tech-role">
+                        <div class="accordion-header">
+                            <div>
+                                <strong>Creative Multimedia Specialist</strong>
+                                <div>Addie's Photography (Jan 2019 - Present)</div>
+                            </div>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Manage full videography operations (shooting to post-production)</li>
+                                <li>Implement instant photo download systems via QR/SMS/email</li>
+                                <li>Maintain website hosting/backup NAS infrastructure</li>
+                                <li>Provide cross-platform technical support (Windows/Mac)</li>
+                            </ul>
+                            <div class="skills-tags">
+                                <span class="skills-tag">Adobe Creative Cloud</span>
+                                <span class="skills-tag">NAS Management</span>
+                                <span class="skills-tag">Technical Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div>
+                                <strong>Warehouse Distribution Specialist</strong>
+                                <div>San José - Evergreen Community College District (2019 - 2021)</div>
+                            </div>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Manage inventory with barcode scanning technology</li>
+                                <li>Develop real-time inventory tracking via Google Sheets</li>
+                                <li>Optimize warehouse storage/organization systems</li>
+                            </ul>
+                            <div class="skills-tags">
+                                <span class="skills-tag">Inventory Management</span>
+                                <span class="skills-tag">Process Automation</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Full Stack Developer</h3>
-                    <div class="date">StartupXYZ | 2018 - 2020</div>
-                    <ul>
-                        <li>Developed React-based web applications</li>
-                        <li>Optimized database queries and performance</li>
-                        <li>Integrated third-party APIs and payment systems</li>
-                    </ul>
+            </div>
+
+            <div class="experience-category">
+                <h3>Additional Experience</h3>
+                <div class="timeline">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div>
+                                <strong>View Previous Roles</strong>
+                                <div>Click to expand</div>
+                            </div>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="timeline-item">
+                                <h4>Community Service Worker</h4>
+                                <div class="date">Sacred Heart Community Service (Apr 2024 - May 2024)</div>
+                                <p>Provided bilingual community services and resource navigation</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>Production Associate</h4>
+                                <div class="date">Tesla (Oct 2018 - Mar 2019)</div>
+                                <p>Implemented 5S methodology and quality control processes</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>Program Coordinator</h4>
+                                <div class="date">One Economy Corporation (Jun 2008 - Jun 2010)</div>
+                                <p>Taught computer literacy and managed youth development programs</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -366,7 +539,7 @@
                 <p>Get in touch</p>
             </div>
             <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> john.doe@email.com</p>
+                <p><i class="fas fa-envelope"></i> angelgm.tech@gmail.com</p>
                 <p><i class="fas fa-phone"></i> (555) 123-4567</p>
                 <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
             </div>
@@ -375,8 +548,27 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 John Doe. All rights reserved.</p>
+            <p>&copy; 2024 Angel Garcia. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
